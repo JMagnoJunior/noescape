@@ -3,7 +3,7 @@ A small game that can show a bit about software architecture.
 
 ### Introduction
 ...
-I am not using any framework or external tools here. The only exception are Mockito, for tests, and Gson (I just wanted a beautiful and readable json file saved)
+I am not using any framework or external tools here. The only exception are Mockito, for tests, and Gson for a beautiful and readable json file saved)
 
 ### Layers and Structure
 
