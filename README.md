@@ -30,9 +30,12 @@ The view layer has two package:
 The repository layer:
   * br.com.magnojr.noescape.repository : It has the function to persist and to recover data from any source.
   
-  ### How to test
-  
-  There is a executable .jar file for the current version inside the /target directory
-  
-  >>> java -jar /target/NoEscape.jar
+### How to test
+
+There is a executable .jar file for the current version inside the /target directory
+
+
+``` java -jar /target/NoEscape.jar ```
+  
+  
   
