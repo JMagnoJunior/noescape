@@ -2,7 +2,7 @@ package br.com.magnojr.noescape.view;
 
 import java.util.Scanner;
 
-public class StartScreen {
+public class StartScreen extends Screen{
 
 	private Scanner scanner;
 
@@ -11,6 +11,7 @@ public class StartScreen {
 	}
 
 	public void show() {
+		clearScreen();
 		System.out.println(TerminalColors.BLUE +"===================================================");
 		System.out.println("The Vogons are invading the middle earth and now only a hero can save us");
 		System.out.println(

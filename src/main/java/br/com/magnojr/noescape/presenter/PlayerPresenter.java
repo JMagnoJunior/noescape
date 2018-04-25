@@ -15,6 +15,12 @@ import br.com.magnojr.noescape.services.MenuService;
 
 public class PlayerPresenter {
 
+	public static String SKIN_MAGE = "%";
+	public static String SKIN_DWARF = "o";
+	public static String SKIN_WARRIOR = "/";
+	public static String SKIN_THIEF = "^";
+	
+	
 	private String name;
 	private String color;
 	private String style;

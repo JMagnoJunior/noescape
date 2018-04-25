@@ -52,10 +52,10 @@ public class CustomizeCharacterScreen extends Screen {
 
 		System.out.println("What is his class (style): ");
 		System.out.println("-------------------");
-		System.out.println("1 - Mage ");
-		System.out.println("2 - Warrior ");
-		System.out.println("3 - Thief ");
-		System.out.println("4 - Dwarf ");
+		System.out.println("1 - Mage ["+ PlayerPresenter.SKIN_MAGE+"]");
+		System.out.println("2 - Warrior ["+ PlayerPresenter.SKIN_WARRIOR+"]");
+		System.out.println("3 - Thief ["+ PlayerPresenter.SKIN_THIEF+"]");
+		System.out.println("4 - Dwarf ["+ PlayerPresenter.SKIN_DWARF+"]");
 		player.setStyle((scanner.nextLine().substring(0, 1)));
 	}
 

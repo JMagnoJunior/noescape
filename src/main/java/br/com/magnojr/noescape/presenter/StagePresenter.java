@@ -48,7 +48,7 @@ public class StagePresenter {
 			element = TerminalColors.BLUE_BRIGHT + element + TerminalColors.RESET; 
 		}
 		if(elemColorable.getColor().equals(Color.GREEN)){
-			element = TerminalColors.GREEN_BRIGHT + element + TerminalColors.RESET; 
+			element = TerminalColors.GREEN + element + TerminalColors.RESET; 
 		}
 		if(elemColorable.getColor().equals(Color.RED)){
 			element = TerminalColors.RED_BRIGHT + element + TerminalColors.RESET; 
@@ -61,17 +61,17 @@ public class StagePresenter {
 		Player player = stage.getPlayer();
 		Position playerPosition = player.getPosition();
 		if (playerPosition.getRow() == i && playerPosition.getCol() == j) {
-			String imagePlayer = "^";
+			String imagePlayer = PlayerPresenter.SKIN_THIEF;
 			if (player.getStyle().equals(Style.DWARF)) {
-				imagePlayer = "o";
+				imagePlayer = PlayerPresenter.SKIN_DWARF;
 			}
 			if (player.getStyle().equals(Style.MAGE)) {
-				imagePlayer = "%";
+				imagePlayer = PlayerPresenter.SKIN_MAGE;
 			}
 			if (player.getStyle().equals(Style.WARRIOR)) {
-				imagePlayer = "/";
+				imagePlayer = PlayerPresenter.SKIN_WARRIOR;
 			}
-			element = paintElement(element, player);
+			imagePlayer = paintElement(imagePlayer, player);
 			element = imagePlayer;
 		}
 
