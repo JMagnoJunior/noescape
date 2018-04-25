@@ -28,35 +28,62 @@ public class CustomizeCharacterScreen extends Screen {
 	public void setPlayer(PlayerPresenter player) {
 		this.player = player;
 	}
+	
+	private void setCharacterColor(){		
+		while(!player.colorIsValid()){
+			clearScreen();
+			System.out.println("What is his color: ");
+			System.out.println("------------------ ");
+			System.out.println("1 - Black ");
+			System.out.println("2 - Red ");
+			System.out.println("3 - Green ");
+			System.out.println("4 - Blue ");
+			player.setColor((scanner.nextLine()));
+		}
+	}
+	
+	private void setCharacterWeapon(){
+		while(!player.weaponIsValid()){
+			clearScreen();
+			System.out.println("What is his weapon: ");
+			System.out.println("-------------------");
+			System.out.println("1 - Sword ");
+			System.out.println("2 - Arrows ");
+			System.out.println("3 - Staff ");
+			System.out.println("4 - Knife ");
+			player.setWeapon((scanner.nextLine()));
+		}
+	}
+	
+	private void setCharacterStyle(){
+		while(!player.styleIsValid()){
+			clearScreen();
+			System.out.println("What is his class (style): ");
+			System.out.println("-------------------");
+			System.out.println("1 - Mage ["+ PlayerPresenter.SKIN_MAGE+"]");
+			System.out.println("2 - Warrior ["+ PlayerPresenter.SKIN_WARRIOR+"]");
+			System.out.println("3 - Thief ["+ PlayerPresenter.SKIN_THIEF+"]");
+			System.out.println("4 - Dwarf ["+ PlayerPresenter.SKIN_DWARF+"]");
+			player.setStyle((scanner.nextLine()));
+		}
+	}
 
 	private void createCharacter() {
 		clearScreen();
 		System.out.println(TerminalColors.BLUE + " Create you Character: " + TerminalColors.RESET);
 		System.out.println("...");
-		System.out.println("What is the name of you character: ");
-		player.setName(scanner.nextLine());
-		System.out.println("What is his color: ");
-		System.out.println("------------------ ");
-		System.out.println("1 - Black ");
-		System.out.println("2 - Red ");
-		System.out.println("3 - Green ");
-		System.out.println("4 - Blue ");
-		player.setColor((scanner.nextLine().substring(0, 1)));
-		System.out.println("What is his weapon: ");
-		System.out.println("-------------------");
-		System.out.println("1 - Sword ");
-		System.out.println("2 - Arrows ");
-		System.out.println("3 - Staff ");
-		System.out.println("4 - Knife ");
-		player.setWeapon((scanner.nextLine().substring(0, 1)));
+		
+		while(!player.nameIsValid()){
+			System.out.println("What is the name of you character: ");
+			player.setName(scanner.nextLine());
+		}
+		
+		this.setCharacterColor();
+		
+		this.setCharacterWeapon();
 
-		System.out.println("What is his class (style): ");
-		System.out.println("-------------------");
-		System.out.println("1 - Mage ["+ PlayerPresenter.SKIN_MAGE+"]");
-		System.out.println("2 - Warrior ["+ PlayerPresenter.SKIN_WARRIOR+"]");
-		System.out.println("3 - Thief ["+ PlayerPresenter.SKIN_THIEF+"]");
-		System.out.println("4 - Dwarf ["+ PlayerPresenter.SKIN_DWARF+"]");
-		player.setStyle((scanner.nextLine().substring(0, 1)));
+		this.setCharacterStyle();
+
 	}
 
 	private void setSkillPoints() {

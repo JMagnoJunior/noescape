@@ -19,12 +19,11 @@ public class PlayerPresenter {
 	public static String SKIN_DWARF = "o";
 	public static String SKIN_WARRIOR = "/";
 	public static String SKIN_THIEF = "^";
-	
-	
-	private String name;
-	private String color;
-	private String style;
-	private String weapon;
+
+	private String name = "";
+	private String color = "";
+	private String style = "";
+	private String weapon = "";
 
 	private String life;
 	private String power;
@@ -266,6 +265,43 @@ public class PlayerPresenter {
 
 	public void cleanDamage() {
 		this.damage = 0;
+	}
+
+	public boolean colorIsValid() {	
+		if (this.getColor().equals("1") || this.getColor().equals("2") || this.getColor().equals("3")
+				|| this.getColor().equals("4")) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean weaponIsValid() {
+		if (this.getWeapon().equals("1") || this.getWeapon().equals("2") || this.getWeapon().equals("3")
+				|| this.getWeapon().equals("4")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean nameIsValid() {
+		if(this.getName().isEmpty()){
+			return false;
+		}else{
+			return true;
+		}
+		
+	}
+
+	public boolean styleIsValid() {
+		if (this.getStyle().equals("1") || this.getStyle().equals("2") || this.getStyle().equals("3")
+				|| this.getStyle().equals("4")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
