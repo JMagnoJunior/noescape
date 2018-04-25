@@ -34,7 +34,6 @@ The repository layer:
 
 There is a executable .jar file for the current version inside the /target directory
 
-
 ``` java -jar /target/NoEscape.jar ```
   
   
