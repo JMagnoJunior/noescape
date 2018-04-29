@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 
 import br.com.magnojr.noescape.models.Stage;
 
-public class GameRepositoryFile {
+public class GameRepositoryFile implements GameRepository {
 	
 	public static final String FILE_TYPE = ".save" ;
 
