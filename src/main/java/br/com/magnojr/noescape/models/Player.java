@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import br.com.magnojr.noescape.exceptions.InvalidCharacterException;
 
-public class Player extends Character implements Movable {
+public class Player extends Character {
 
 	private String name;
 	private int exp = 0;
@@ -63,29 +63,29 @@ public class Player extends Character implements Movable {
 
 	}
 
-	public void move(Stage stage, Direction direction) {
-		Position currentPosition = this.getPosition();
-		if (direction.equals(Direction.UP) && (currentPosition.getRow() > 1)) {
-			Position newPosition = new Position(currentPosition.getCol(), currentPosition.up());
-			this.setPosition(newPosition);
-		}
-
-		if (direction.equals(Direction.DOWN) && (currentPosition.getRow() < (stage.getMaxColPositionAllowed() - 1))) {
-			Position newPosition = new Position(currentPosition.getCol(), currentPosition.down());
-			this.setPosition(newPosition);
-		}
-
-		if (direction.equals(Direction.RIGHT) && (currentPosition.getCol() < (stage.getMaxRowPositionAllowed() - 1))) {
-			Position newPosition = new Position(currentPosition.right(), currentPosition.getRow());
-			this.setPosition(newPosition);
-		}
-
-		if (direction.equals(Direction.LEFT) && (currentPosition.getRow() > 1)) {
-			Position newPosition = new Position(currentPosition.left(), currentPosition.getRow());
-			this.setPosition(newPosition);
-		}
-
-	}
+//	public void move(Stage stage, Direction direction) {
+//		Position currentPosition = this.getPosition();
+//		if (direction.equals(Direction.UP) && (currentPosition.getRow() > 1)) {
+//			Position newPosition = new Position(currentPosition.getCol(), currentPosition.up());
+//			this.setPosition(newPosition);
+//		}
+//
+//		if (direction.equals(Direction.DOWN) && (currentPosition.getRow() < (stage.getMaxColPositionAllowed() - 1))) {
+//			Position newPosition = new Position(currentPosition.getCol(), currentPosition.down());
+//			this.setPosition(newPosition);
+//		}
+//
+//		if (direction.equals(Direction.RIGHT) && (currentPosition.getCol() < (stage.getMaxRowPositionAllowed() - 1))) {
+//			Position newPosition = new Position(currentPosition.right(), currentPosition.getRow());
+//			this.setPosition(newPosition);
+//		}
+//
+//		if (direction.equals(Direction.LEFT) && (currentPosition.getRow() > 1)) {
+//			Position newPosition = new Position(currentPosition.left(), currentPosition.getRow());
+//			this.setPosition(newPosition);
+//		}
+//
+//	}
 
 	public int atack(Stage stage, Direction direction) {
 		int damage = 0;
@@ -136,6 +136,10 @@ public class Player extends Character implements Movable {
 		}
 		return damage;
 
+	}
+	
+	public void getHit(){
+		this.currentLife -= 1;
 	}
 
 	private void addExp(int experienceReleased) {

@@ -1,20 +1,20 @@
 package br.com.magnojr.noescape.view;
 
-import java.util.List;
 import java.util.Scanner;
 
-import br.com.magnojr.noescape.models.Enemy;
 import br.com.magnojr.noescape.presenter.PlayerPresenter;
 import br.com.magnojr.noescape.presenter.StagePresenter;
 
 public class StageOneScreen extends Screen {
 
 	private PlayerPresenter player;
+	private StagePresenter stagePresenter;
 
 	private Scanner scanner;
 
 	public StageOneScreen(PlayerPresenter player, Scanner scanner) {
 		this.player = player;
+		stagePresenter = player.getStagePresenter();
 
 		this.scanner = scanner;
 	}
@@ -37,7 +37,6 @@ public class StageOneScreen extends Screen {
 		System.out.println("Weapon Selected: " + player.getWeaponName() + " / Weapon - damage: "
 				+ player.getWeaponDamage() + " / Weapon - reach: " + player.getWeaponReach());
 
-		StagePresenter stagePresenter = player.getStagePresenter();
 		String wall = stagePresenter.getWallFormat();
 		int cols = stagePresenter.getCols();
 		int rows = stagePresenter.getRows();
@@ -73,7 +72,7 @@ public class StageOneScreen extends Screen {
 			String input = scanner.nextLine();
 
 			player.action(input);
-
+			
 			if (player.getDamage() > 0) {
 				System.out.println("You Hit The Bad Guy! ");
 				System.out.println("((( Damage: " + player.getDamage() + " )))");
@@ -82,8 +81,15 @@ public class StageOneScreen extends Screen {
 				player.cleanDamage();
 			}
 			
-		
-
+			int currentLife = stagePresenter.checkIfPlayerGetHit();
+			if(currentLife <= 0){
+				GameOverScreen gameOver = new GameOverScreen(scanner);
+				gameOver.show();
+			}
+			
+			
+			stagePresenter.moveEnemies();
+			
 			this.drawStage();
 		}
 

@@ -11,6 +11,16 @@ public class CombatService {
 		return player.atack(stage, direction);
 		
 	}
+	
+	public int checkIfPlayerGetHit(Stage stage){
+		Player player = stage.getPlayer();
+		stage.getEnemies().forEach((e) -> {
+			if(e.getPosition().equals(player.getPosition())){
+				player.getHit();
+			}
+		});
+		return player.getCurrentLife();
+	}
 
 	
 	

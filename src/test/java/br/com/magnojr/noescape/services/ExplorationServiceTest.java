@@ -27,7 +27,7 @@ public class ExplorationServiceTest {
 	}
 
 	@Test
-	public void shouldChangeThePlayerPositionToRowMinusOne_whenPlayerMoveUpAndColBiggerThanZero() throws  Exception{
+	public void shouldChangeThePlayerPositionToRowMinusOne_whenPlayerMoveUpAndRowBiggerThanZero() throws  Exception{
 		ExplorationService service = new ExplorationService();
 		// GIVEN
 		Player player = getNewPlayer();
@@ -92,7 +92,7 @@ public class ExplorationServiceTest {
 	}
 
 	@Test
-	public void shouldChangeThePlayerPositionToColPlusOne_whenPlayerMoveRightAndRowIsLessThanMaxColPositionAllowed() throws  Exception{
+	public void shouldChangeThePlayerPositionToColPlusOne_whenPlayerMoveRightAndColIsLessThanMaxColPositionAllowed() throws  Exception{
 		ExplorationService service = new ExplorationService();
 		// GIVEN
 		Player player = getNewPlayer();
@@ -108,7 +108,7 @@ public class ExplorationServiceTest {
 	}
 
 	@Test
-	public void shouldNotChangeThePlayerPositionToColPlusOne_whenPlayerMoveRightAndColIsEqualsToMaxRowPositionAllowed() throws  Exception{
+	public void shouldNotChangeThePlayerPositionToColPlusOne_whenPlayerMoveRightAndColIsEqualsToMaxColPositionAllowed() throws  Exception{
 		ExplorationService service = new ExplorationService();
 		// GIVEN
 		Player player = getNewPlayer();
@@ -124,14 +124,14 @@ public class ExplorationServiceTest {
 	}
 
 	@Test
-	public void shouldChangeThePlayerPositionToColMinusOne_whenPlayerMoveLeftAndColIsBiggerThanMinRowPositionAllowed() throws  Exception{
+	public void shouldChangeThePlayerPositionToColMinusOne_whenPlayerMoveLeftAndColIsBiggerThanMinColPositionAllowed() throws  Exception{
 		ExplorationService service = new ExplorationService();
 		// GIVEN
 		Player player = getNewPlayer();
 		Stage stage1 = Stage.createStage1(player);
 
 		// WHEN
-		player.setPosition(new Position(stage1.getMinColPositionAllowed(), stage1.getMinRowPositionAllowed() + 1));
+		player.setPosition(new Position(stage1.getMinColPositionAllowed() +1, stage1.getMinRowPositionAllowed()));
 		int oldCol = player.getPosition().getCol();
 		service.move(stage1,player, Direction.LEFT);
 
@@ -140,7 +140,7 @@ public class ExplorationServiceTest {
 	}
 	
 	@Test
-	public void shouldNotChangeThePlayerPositionToColMinusOne_whenPlayerMoveLeftAndColIsEqualsToMinRowPositionAllowed() throws  Exception{
+	public void shouldNotChangeThePlayerPositionToColMinusOne_whenPlayerMoveLeftAndColIsEqualsToMinColPositionAllowed() throws  Exception{
 		ExplorationService service = new ExplorationService();
 		// GIVEN
 		Player player = getNewPlayer();

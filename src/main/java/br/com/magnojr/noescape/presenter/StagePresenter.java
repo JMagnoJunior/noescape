@@ -1,20 +1,26 @@
 package br.com.magnojr.noescape.presenter;
 
 import java.util.Optional;
+import java.util.Random;
 
 import br.com.magnojr.noescape.models.Color;
 import br.com.magnojr.noescape.models.Colorable;
+import br.com.magnojr.noescape.models.Direction;
 import br.com.magnojr.noescape.models.Enemy;
 import br.com.magnojr.noescape.models.Player;
 import br.com.magnojr.noescape.models.Position;
 import br.com.magnojr.noescape.models.Stage;
 import br.com.magnojr.noescape.models.Style;
+import br.com.magnojr.noescape.services.CombatService;
+import br.com.magnojr.noescape.services.ExplorationService;
 import br.com.magnojr.noescape.services.MenuService;
 import br.com.magnojr.noescape.view.TerminalColors;
 
 public class StagePresenter {
 
 	private Stage stage;
+	private ExplorationService explorationService = new ExplorationService();
+	private CombatService combatService = new CombatService();
 
 	public Stage getStage() {
 		return stage;
@@ -112,6 +118,30 @@ public class StagePresenter {
 		} else {
 			return false;
 		}
+	}
+	
+	public void moveEnemies(){
+		stage.getEnemies().forEach((e) -> {
+			Random rnd = new Random();
+			int result = rnd.nextInt(5);
+			if(result == 1){
+				explorationService.move(this.stage, e, Direction.UP);
+			}
+			if(result == 2){
+				explorationService.move(this.stage, e, Direction.DOWN);
+			}
+			if(result == 3){
+				explorationService.move(this.stage, e, Direction.RIGHT);
+			}
+			if(result == 4){
+				explorationService.move(this.stage, e, Direction.LEFT);
+			}
+			
+		});
+	}
+	
+	public int checkIfPlayerGetHit(){
+		return combatService.checkIfPlayerGetHit(this.stage);
 	}
 
 }

@@ -1,6 +1,6 @@
 package br.com.magnojr.noescape.models;
 
-public abstract class Character implements Colorable{
+public abstract class Character implements Colorable, Movable {
 
 	private Position position;
 	private Color color;
@@ -48,6 +48,33 @@ public abstract class Character implements Colorable{
 		this.weapon = weapon;
 	}
 
+	public void move(Stage stage, Direction direction) {
+		
+		Position currentPosition = this.getPosition();
+		int maxMoveAllowedInScreen = stage.getMaxColPositionAllowed() - 2;
+		
+		if (direction.equals(Direction.UP) && (currentPosition.getRow() > 1)) {
+			Position newPosition = new Position(currentPosition.getCol(), currentPosition.up());
+			this.setPosition(newPosition);
+		}
+
+		if (direction.equals(Direction.DOWN) && (currentPosition.getRow() < maxMoveAllowedInScreen )) {
+			Position newPosition = new Position(currentPosition.getCol(), currentPosition.down());
+			this.setPosition(newPosition);
+		}
+
+		if (direction.equals(Direction.RIGHT) && (currentPosition.getCol() < maxMoveAllowedInScreen)) {
+			Position newPosition = new Position(currentPosition.right(), currentPosition.getRow());
+			this.setPosition(newPosition);
+		}
+
+		if (direction.equals(Direction.LEFT) && (currentPosition.getCol() > 1)) {
+			Position newPosition = new Position(currentPosition.left(), currentPosition.getRow());
+			this.setPosition(newPosition);
+		}
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -78,7 +105,5 @@ public abstract class Character implements Colorable{
 			return false;
 		return true;
 	}
-	
-	
 
 }

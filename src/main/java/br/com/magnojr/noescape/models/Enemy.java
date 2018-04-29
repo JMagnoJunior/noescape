@@ -63,4 +63,10 @@ public class Enemy extends Character {
 		return underAtack;
 	}
 
+	@Override	
+	public void move(Stage stage, Direction direction) {
+		if(this.alive){
+			super.move(stage, direction);
+		}
+	}
 }
