@@ -32,7 +32,8 @@ The repository layer:
   
 ### How to test
 
-There is a executable .jar file for the current version inside the /target directory
+There is a executable .jar file for the current version inside the /target directory. 
+I put it there just to simplify the access to the result.
 
 ``` java -jar /target/NoEscape.jar ```
   
