@@ -4,10 +4,11 @@ import br.com.magnojr.noescape.exceptions.SkillNotBalancedException;
 import br.com.magnojr.noescape.models.Player;
 import br.com.magnojr.noescape.models.Stage;
 import br.com.magnojr.noescape.repository.GameRepository;
+import br.com.magnojr.noescape.repository.GameRepositoryFile;
 
 public class MenuService {
 
-	private GameRepository repository = new GameRepository();
+	private GameRepository repository = (GameRepository) new GameRepositoryFile();
 
 	public MenuService() {
 	}

@@ -10,7 +10,7 @@ import br.com.magnojr.noescape.models.Skill;
 import br.com.magnojr.noescape.models.Stage;
 import br.com.magnojr.noescape.models.Style;
 import br.com.magnojr.noescape.models.Weapon;
-import br.com.magnojr.noescape.repository.GameRepository;
+import br.com.magnojr.noescape.repository.GameRepositoryFile;
 
 public class MenuServiceTest {
 
@@ -26,7 +26,7 @@ public class MenuServiceTest {
 		return new Player(color, name, skill, style, weapon);
 	}
 	
-	GameRepository gameRepository = Mockito.mock(GameRepository.class);
+	GameRepositoryFile gameRepository = Mockito.mock(GameRepositoryFile.class);
 	
 	@Test
 	public void shouldSaveTheGame() throws  Exception{

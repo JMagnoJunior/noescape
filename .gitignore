@@ -1,4 +1,7 @@
 .classpath
 .project
 .settings/
+target/classes
+target/test-classes/*
 *.save
+.DS_Store

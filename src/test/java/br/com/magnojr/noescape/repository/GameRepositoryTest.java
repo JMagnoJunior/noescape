@@ -21,7 +21,7 @@ import br.com.magnojr.noescape.models.Skill;
 import br.com.magnojr.noescape.models.Stage;
 import br.com.magnojr.noescape.models.Style;
 import br.com.magnojr.noescape.models.Weapon;
-import br.com.magnojr.noescape.repository.GameRepository;
+import br.com.magnojr.noescape.repository.GameRepositoryFile;
 
 public class GameRepositoryTest {
 
@@ -57,10 +57,10 @@ public class GameRepositoryTest {
 		
 		Stage stage1 = Stage.createStage1(getNewPlayer());
 
-		GameRepository repository = new GameRepository();
+		GameRepositoryFile repository = new GameRepositoryFile();
 		repository.save(stage1, SLOT_NAME);
 		
-		assertTrue(new File(SLOT_NAME + GameRepository.FILE_TYPE).exists());
+		assertTrue(new File(SLOT_NAME + GameRepositoryFile.FILE_TYPE).exists());
 
 	}
 
@@ -68,7 +68,7 @@ public class GameRepositoryTest {
 	public void shouldGetAStageSaved() throws  Exception{
 
 		Stage stage1 = Stage.createStage1(getNewPlayer());
-		GameRepository repository = new GameRepository();
+		GameRepositoryFile repository = new GameRepositoryFile();
 
 		repository.save(stage1, SLOT_NAME);
 
